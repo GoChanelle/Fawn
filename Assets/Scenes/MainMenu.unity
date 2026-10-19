@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrossFade
   crossFade: {fileID: 1684090723}
-  duration: 10
+  duration: 2
 --- !u!1 &1900495847
 GameObject:
   m_ObjectHideFlags: 0
