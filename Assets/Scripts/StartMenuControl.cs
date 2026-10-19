@@ -5,7 +5,7 @@ public class StartMenuControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnStartClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        LevelManager.Instance.LoadScene("SampleScene", "CrossFade");
     }
 
     public void OnQuitClick()
