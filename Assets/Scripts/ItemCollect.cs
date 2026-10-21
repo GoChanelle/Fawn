@@ -1,16 +1,14 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class ItemCollect : MonoBehaviour
 {
-    [SerializeField] private TMP_Text pickUpText;
+    [SerializeField] private GameObject promptObject;
 
     private bool pickUpAllowed;
 
     private void Start()
     {
-        pickUpText.gameObject.SetActive(false);
+        promptObject.SetActive(false);
     }
 
     private void Update()
@@ -23,7 +21,7 @@ public class ItemCollect : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Fawn"))
         {
-            pickUpText.gameObject.SetActive(true);
+            promptObject.SetActive(true);
             pickUpAllowed = true;
         }
     }
@@ -32,14 +30,13 @@ public class ItemCollect : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Fawn"))
         {
-            pickUpText.gameObject.SetActive(false);
+            promptObject.SetActive(false);
             pickUpAllowed = false;
         }
     }
 
     private void PickUp()
     {
-        pickUpText.gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }
