@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     {
         input = Input.GetAxisRaw("Horizontal");
         if (input < 0) {
-            spriteRenderer.flipX = true;
-        } else if (input > 0) {
             spriteRenderer.flipX = false;
+        } else if (input > 0) {
+            spriteRenderer.flipX = true;
         }
     }
 
