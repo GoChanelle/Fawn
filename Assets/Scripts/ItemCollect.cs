@@ -3,6 +3,7 @@ using UnityEngine;
 public class ItemCollect : MonoBehaviour
 {
     [SerializeField] private GameObject promptObject;
+    [SerializeField] private GameObject inventoryItemPrefab;
 
     private bool pickUpAllowed;
 
@@ -36,7 +37,14 @@ public class ItemCollect : MonoBehaviour
     }
 
     private void PickUp()
+{
+    if (InsideInventoryController.instance.AddItem(inventoryItemPrefab))
     {
         Destroy(gameObject);
     }
+    else
+    {
+        Debug.Log("Inventory full");
+    }
+}
 }
