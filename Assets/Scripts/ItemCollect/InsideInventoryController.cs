@@ -12,6 +12,22 @@ public class InsideInventoryController : MonoBehaviour
 
     private List<Slot> slots = new List<Slot>();
 
+    private static List<GameObject> savedItems = new List<GameObject>();
+    private static bool initialized = false;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics()
+    {
+        savedItems.Clear();
+        initialized = false;
+    }
+
+    public static void ResetInventory()
+    {
+        savedItems.Clear();
+        initialized = false;
+    }
+
     void Awake()
     {
         instance = this;
@@ -23,14 +39,17 @@ public class InsideInventoryController : MonoBehaviour
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
             slots.Add(slot);
-
-            if (i < itemPrefabs.Length)
-            {
-                GameObject item = Instantiate(itemPrefabs[i], slot.transform);
-                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                slot.currentItem = item;
-            }
         }
+
+        if (!initialized)
+        {
+            initialized = true;
+            for (int i = 0; i < itemPrefabs.Length && i < slotCount; i++)
+                savedItems.Add(itemPrefabs[i]);
+        }
+
+        for (int i = 0; i < savedItems.Count && i < slots.Count; i++)
+            SpawnItemInSlot(savedItems[i], slots[i]);
     }
 
     public bool AddItem(GameObject itemPrefab)
@@ -39,12 +58,18 @@ public class InsideInventoryController : MonoBehaviour
         {
             if (slot.currentItem == null)
             {
-                GameObject item = Instantiate(itemPrefab, slot.transform);
-                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                slot.currentItem = item;
+                SpawnItemInSlot(itemPrefab, slot);
+                savedItems.Add(itemPrefab);
                 return true;
             }
         }
         return false; // inventory full
+    }
+
+    private void SpawnItemInSlot(GameObject prefab, Slot slot)
+    {
+        GameObject item = Instantiate(prefab, slot.transform);
+        item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        slot.currentItem = item;
     }
 }
