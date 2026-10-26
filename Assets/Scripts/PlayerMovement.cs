@@ -6,17 +6,19 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float input;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
-    
-    // Update is called once per frame
     void Update()
     {
         input = Input.GetAxisRaw("Horizontal");
+
         if (input < 0) {
             spriteRenderer.flipX = false;
         } else if (input > 0) {
             spriteRenderer.flipX = true;
         }
+
+        animator.SetBool("IsWalking", input != 0);
     }
 
     void FixedUpdate()
