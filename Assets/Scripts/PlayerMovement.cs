@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float input;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public AudioSource walkAudio;
 
     void Update()
     {
@@ -18,7 +19,13 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true;
         }
 
-        animator.SetBool("IsWalking", input != 0);
+        bool isWalking = input != 0;
+        animator.SetBool("IsWalking", isWalking);
+
+        if (isWalking && !walkAudio.isPlaying)
+            walkAudio.Play();
+        else if (!isWalking && walkAudio.isPlaying)
+            walkAudio.Stop();
     }
 
     void FixedUpdate()
