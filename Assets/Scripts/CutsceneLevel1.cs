@@ -6,8 +6,12 @@ public class CutsceneLevel1 : MonoBehaviour
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] private Transform npc;
+    [SerializeField] private Animator npcAnimator;
+    [SerializeField] private SpriteRenderer npcSprite;
+    [SerializeField] private AudioSource npcAudio;
     [SerializeField] private Transform exitPoint;
-    [SerializeField] private float walkSpeed = 2f;
+    [SerializeField] private float walkSpeed = 1f;
+    [SerializeField] private bool npcFacesRightByDefault = false;
     [SerializeField] private GameObject dialogueHolder;
 
     private void Start()
@@ -23,12 +27,21 @@ public class CutsceneLevel1 : MonoBehaviour
         dialogueHolder.SetActive(true);
         yield return new WaitUntil(() => !dialogueHolder.activeSelf);
 
-        while (Vector2.Distance(npc.position, exitPoint.position) > 0.05f)
+        bool movingRight = exitPoint.position.x > npc.position.x;
+        npcSprite.flipX = npcFacesRightByDefault ? !movingRight : movingRight;
+        npcAnimator.SetBool("IsWalking", true);
+        npcAudio.Play();
+
+        while (Mathf.Abs(npc.position.x - exitPoint.position.x) > 0.05f)
         {
-            npc.position = Vector2.MoveTowards(
-                npc.position, exitPoint.position, walkSpeed * Time.deltaTime);
+            float newX = Mathf.MoveTowards(
+                npc.position.x, exitPoint.position.x, walkSpeed * Time.deltaTime);
+            npc.position = new Vector3(newX, npc.position.y, npc.position.z);
             yield return null;
         }
+
+        npcAudio.Stop();
+        npcAnimator.SetBool("IsWalking", false);
         npc.gameObject.SetActive(false);
 
         player.enabled = true;
