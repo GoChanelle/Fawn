@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 004737f02afd38841b4ebfa1a47e6359
+  - enabled: 1
+    path: Assets/Scenes/LockedRoom.unity
+    guid: f3e034c3436d55946b8cbb3ff92e3bd1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -63,7 +63,7 @@ public class InsideInventoryController : MonoBehaviour
                 return true;
             }
         }
-        return false; // inventory full
+        return false;
     }
 
     private void SpawnItemInSlot(GameObject prefab, Slot slot)
@@ -71,5 +71,24 @@ public class InsideInventoryController : MonoBehaviour
         GameObject item = Instantiate(prefab, slot.transform);
         item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         slot.currentItem = item;
+    }
+
+    public static bool HasItem(string prefabName)
+{
+    foreach (GameObject item in savedItems)
+        if (item.name == prefabName) return true;
+    return false;
+}
+
+    public static void ConsumeItem(string prefabName)
+    {
+        for (int i = 0; i < savedItems.Count; i++)
+        {
+            if (savedItems[i].name == prefabName)
+            {
+                savedItems.RemoveAt(i);
+                return;
+            }
+        }
     }
 }
