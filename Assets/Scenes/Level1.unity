@@ -795,6 +795,7 @@ MonoBehaviour:
   dialogueHolder: {fileID: 443800272}
   player: {fileID: 528211589}
   playerRb: {fileID: 528211585}
+  pickupId: 
 --- !u!1 &287617009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerRb: {fileID: 528211585}
-  moveSpeed: 5
+  moveSpeed: 7
   input: 0
   spriteRenderer: {fileID: 528211586}
   animator: {fileID: 528211590}

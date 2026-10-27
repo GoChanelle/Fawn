@@ -9,6 +9,10 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Rigidbody2D playerRb;
 
+    [Header("Choice")]
+    [SerializeField] private ChoicePrompt choicePrompt;
+    
+
     private bool triggered;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +35,22 @@ public class DialogueTrigger : MonoBehaviour
 
         dialogueHolder.SetActive(true);
 
-        yield return new WaitUntil(() => !dialogueHolder.activeSelf);
+        if (choicePrompt != null)
+        {
+            Transform holder = dialogueHolder.transform;
+            DialogueSystem.DialogueLine lastLine =
+            holder.GetChild(holder.childCount - 1).GetComponent<DialogueSystem.DialogueLine>();
+
+            yield return new WaitUntil(() => lastLine.typingDone);
+            choicePrompt.Show();
+            yield return new WaitUntil(() => choicePrompt.finished);
+
+            dialogueHolder.SetActive(false); // close the dialogue box after "continue"
+        }
+        else
+        {
+            yield return new WaitUntil(() => !dialogueHolder.activeSelf);
+        }
 
         if (player != null) player.enabled = true;
     }

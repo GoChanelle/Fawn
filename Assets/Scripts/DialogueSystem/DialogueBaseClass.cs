@@ -7,6 +7,10 @@ namespace DialogueSystem
     public class DialogueBaseClass : MonoBehaviour
     {
         public bool finished { get; protected set; }
+        public bool typingDone { get; protected set; }
+
+        [SerializeField] protected bool holdForChoice;
+        
 
         protected IEnumerator WriteText(string input, TMP_Text textHolder, float delay, AudioClip sound, float delayBetweenLines)
         {
@@ -15,10 +19,14 @@ namespace DialogueSystem
                 textHolder.text += input[i];
 
                 if (SoundManager.instance != null && sound != null)
-                    SoundManager.instance.PlaySound(sound);
+                SoundManager.instance.PlaySound(sound);
 
                 yield return new WaitForSeconds(delay);
             }
+
+            typingDone = true;
+
+            if (holdForChoice) yield break;
 
             yield return new WaitUntil(() => Input.GetMouseButton(0));
             finished = true;
