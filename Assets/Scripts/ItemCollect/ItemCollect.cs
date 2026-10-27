@@ -19,13 +19,23 @@ public class ItemCollect : MonoBehaviour
     [SerializeField] private PlayerMovement player;
     [SerializeField] private Rigidbody2D playerRb;
 
+    [Header("Persistence")]
+    [SerializeField] private string pickupId;
+
     private bool pickUpAllowed;
     private bool collecting;
 
     private void Start()
     {
-        promptObject.SetActive(false);
-    }
+        if (!string.IsNullOrEmpty(pickupId) && CollectedPickups.IsCollected(pickupId))
+        {
+            if (promptObject != null) promptObject.SetActive(false);
+            Destroy(gameObject);
+            return;
+        }
+
+    promptObject.SetActive(false);
+}
 
     private void Update()
     {
@@ -55,7 +65,6 @@ public class ItemCollect : MonoBehaviour
 
     private IEnumerator CollectSequence()
     {
-        // 1. Try to add to the inventory first; stop if it's full
         if (!InsideInventoryController.instance.AddItem(inventoryItemPrefab))
         {
             Debug.Log("Inventory full");
@@ -66,18 +75,20 @@ public class ItemCollect : MonoBehaviour
         pickUpAllowed = false;
         promptObject.SetActive(false);
 
-        // 2. Hide the item but keep this object alive so the coroutine keeps running
+        if (!string.IsNullOrEmpty(pickupId))
+        {
+            CollectedPickups.MarkCollected(pickupId);
+
+        }
+
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
-        // 3. Freeze the player
         player.enabled = false;
         playerRb.linearVelocity = Vector2.zero;
 
-        // 4. Show the popup
         ItemPopupUI.instance.Show(itemIcon, itemName);
 
-        // 5. Play the one-line dialogue and wait for it to finish
         if (dialogueHolder != null)
         {
             dialogueHolder.SetActive(true);
@@ -88,9 +99,9 @@ public class ItemCollect : MonoBehaviour
             yield return new WaitForSeconds(2f);
         }
 
-        // 6. Clean up
         ItemPopupUI.instance.Hide();
         player.enabled = true;
+        promptObject.SetActive(false);
         Destroy(gameObject);
     }
 }

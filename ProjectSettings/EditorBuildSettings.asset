@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LockedRoom.unity
     guid: f3e034c3436d55946b8cbb3ff92e3bd1
+  - enabled: 1
+    path: Assets/Scenes/BadEnd.unity
+    guid: 934915c6a0369394d980b0a6afe46469
+  - enabled: 1
+    path: Assets/Scenes/GoodEnd.unity
+    guid: df149692ac491fa40b83f90e4eb65b66
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
