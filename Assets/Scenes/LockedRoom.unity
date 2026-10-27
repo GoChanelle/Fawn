@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 834497681}
   - component: {fileID: 834497680}
   - component: {fileID: 834497679}
-  - component: {fileID: 834497678}
+  - component: {fileID: 834497682}
   m_Layer: 0
   m_Name: Level2Loader
   m_TagString: Untagged
@@ -1965,19 +1965,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &834497678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834497677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ee3a8b6920b004e956f08425117743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Level2Loader
-  promptObject: {fileID: 1265327185}
 --- !u!61 &834497679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2099,6 +2086,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834497682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834497677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed3972737feeab47af9beb40a30e1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
+  nextSceneName: Level2
+  transitionName: CrossFade
+  promptObject: {fileID: 1265327185}
+  buck: {fileID: 0}
 --- !u!1 &875318381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,7 +2946,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1275925599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3113,7 +3116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1296112433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3128,6 +3131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerRb: {fileID: 1296112432}
   moveSpeed: 7
+  runMultiplier: 1.6
   input: 0
   spriteRenderer: {fileID: 1296112436}
   animator: {fileID: 1296112435}
@@ -4495,17 +4499,17 @@ SceneRoots:
   m_Roots:
   - {fileID: 149389641}
   - {fileID: 1557749043}
+  - {fileID: 1623677144}
+  - {fileID: 221994881}
+  - {fileID: 700473495}
+  - {fileID: 177333334}
   - {fileID: 1296112438}
   - {fileID: 1275925601}
   - {fileID: 387077534}
-  - {fileID: 1623677144}
-  - {fileID: 221994881}
-  - {fileID: 1265327189}
   - {fileID: 834497681}
-  - {fileID: 1495800161}
+  - {fileID: 1265327189}
   - {fileID: 2088156237}
   - {fileID: 1249104786}
   - {fileID: 494023865}
-  - {fileID: 700473495}
   - {fileID: 1004186158}
-  - {fileID: 177333334}
+  - {fileID: 1495800161}

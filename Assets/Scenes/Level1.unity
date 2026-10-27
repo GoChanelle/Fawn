@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0c2b6ad650129449caaad9376e2705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLine
+  holdForChoice: 0
   input: i am buck
   delay: 0.1
   delayBetweenLines: 0
@@ -847,6 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0c2b6ad650129449caaad9376e2705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLine
+  holdForChoice: 0
   input: why is there a gun here?
   delay: 0.1
   delayBetweenLines: 0
@@ -1743,6 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0c2b6ad650129449caaad9376e2705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLine
+  holdForChoice: 0
   input: I am FAWN!
   delay: 0.1
   delayBetweenLines: 0
@@ -2206,7 +2209,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &528211586
 SpriteRenderer:
   serializedVersion: 3
@@ -2342,6 +2345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerRb: {fileID: 528211585}
   moveSpeed: 7
+  runMultiplier: 1.6
   input: 0
   spriteRenderer: {fileID: 528211586}
   animator: {fileID: 528211590}
@@ -2795,15 +2799,15 @@ RectTransform:
   m_GameObject: {fileID: 977239539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010443999, y: 0.009236, z: 0.02}
+  m_LocalScale: {x: 0.0022013548, y: 0.001324161, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1297077319}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1392911190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -14.71094, y: -2}
+  m_AnchoredPosition: {x: 0, y: 0.4166677}
   m_SizeDelta: {x: 99.7183, y: 112.059}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1087480787
@@ -3928,7 +3932,7 @@ GameObject:
   - component: {fileID: 1392911190}
   - component: {fileID: 1392911189}
   - component: {fileID: 1392911192}
-  - component: {fileID: 1392911191}
+  - component: {fileID: 1392911193}
   m_Layer: 0
   m_Name: Level2Loader
   m_TagString: Untagged
@@ -4008,22 +4012,10 @@ Transform:
   m_LocalPosition: {x: -14.7109375, y: -4.90625, z: 0}
   m_LocalScale: {x: 4.744351, y: 6.9749823, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 977239543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1392911191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392911188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ee3a8b6920b004e956f08425117743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Level2Loader
-  promptObject: {fileID: 977239539}
 --- !u!61 &1392911192
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4070,6 +4062,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1392911193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392911188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed3972737feeab47af9beb40a30e1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
+  nextSceneName: Level2
+  transitionName: CrossFade
+  promptObject: {fileID: 977239539}
+  buck: {fileID: 0}
 --- !u!1 &1444565749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0c2b6ad650129449caaad9376e2705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLine
+  holdForChoice: 0
   input: ok
   delay: 0.1
   delayBetweenLines: 0
@@ -4355,6 +4364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0c2b6ad650129449caaad9376e2705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueLine
+  holdForChoice: 0
   input: ur not my dad !!!
   delay: 0.1
   delayBetweenLines: 0
@@ -5299,7 +5309,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1981286075
 Animator:
   serializedVersion: 7
@@ -5591,14 +5601,13 @@ SceneRoots:
   - {fileID: 1131008638}
   - {fileID: 123260737}
   - {fileID: 343638317}
+  - {fileID: 2121824274}
   - {fileID: 528211587}
   - {fileID: 1981286072}
   - {fileID: 246335641}
-  - {fileID: 977239543}
   - {fileID: 1392911190}
   - {fileID: 211712287}
   - {fileID: 1088607873}
   - {fileID: 226905233}
-  - {fileID: 1623089393}
   - {fileID: 445253636}
-  - {fileID: 2121824274}
+  - {fileID: 1623089393}

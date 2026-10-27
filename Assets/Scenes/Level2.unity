@@ -1983,6 +1983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerRb: {fileID: 471003989}
   moveSpeed: 7
+  runMultiplier: 1.6
   input: 0
   spriteRenderer: {fileID: 471003990}
   animator: {fileID: 471003986}
@@ -2059,7 +2060,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &471003990
 SpriteRenderer:
   serializedVersion: 3
@@ -2803,10 +2804,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 849415358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63528cb63cef2f04ca64d1d6be21bc1e, type: 3}
+  m_Script: {fileID: 11500000, guid: aed3972737feeab47af9beb40a30e1f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Level3Loader
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
+  nextSceneName: Level3
+  transitionName: CrossFade
   promptObject: {fileID: 525708238}
+  buck: {fileID: 0}
 --- !u!1 &865405549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4496,7 @@ MonoBehaviour:
   requiredItemName: key
   nextSceneName: LockedRoom
   consumeKey: 1
+  doorId: LockedRoomDoor
 --- !u!1 &1526878384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,6 +4932,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1131008638}
   - {fileID: 343638317}
+  - {fileID: 385447616}
   - {fileID: 471003991}
   - {fileID: 246335641}
   - {fileID: 849415362}
@@ -4934,6 +4940,5 @@ SceneRoots:
   - {fileID: 211712287}
   - {fileID: 1088607873}
   - {fileID: 226905233}
-  - {fileID: 1623089393}
   - {fileID: 445253636}
-  - {fileID: 385447616}
+  - {fileID: 1623089393}
