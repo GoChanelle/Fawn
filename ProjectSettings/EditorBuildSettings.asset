@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LockedRoom.unity
     guid: f3e034c3436d55946b8cbb3ff92e3bd1
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 95bbd3bd2dc29be498ddd893cbd156b6
+  - enabled: 1
     path: Assets/Scenes/BadEnd.unity
     guid: 934915c6a0369394d980b0a6afe46469
   - enabled: 1

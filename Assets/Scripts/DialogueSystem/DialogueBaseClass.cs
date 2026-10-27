@@ -8,9 +8,13 @@ namespace DialogueSystem
     {
         public bool finished { get; protected set; }
         public bool typingDone { get; protected set; }
-
         [SerializeField] protected bool holdForChoice;
-        
+
+        protected void ResetState()
+        {
+            finished = false;
+            typingDone = false;
+        }
 
         protected IEnumerator WriteText(string input, TMP_Text textHolder, float delay, AudioClip sound, float delayBetweenLines)
         {
@@ -19,7 +23,7 @@ namespace DialogueSystem
                 textHolder.text += input[i];
 
                 if (SoundManager.instance != null && sound != null)
-                SoundManager.instance.PlaySound(sound);
+                    SoundManager.instance.PlaySound(sound);
 
                 yield return new WaitForSeconds(delay);
             }

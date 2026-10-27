@@ -25,8 +25,13 @@ namespace DialogueSystem
             imageHolder.preserveAspect = true;
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            if (textHolder == null) return;
+
+            StopAllCoroutines();
+            textHolder.text = ""; 
+            ResetState();          
             StartCoroutine(WriteText(input, textHolder, delay, sound, delayBetweenLines));
         }
     }

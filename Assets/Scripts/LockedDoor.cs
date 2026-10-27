@@ -10,6 +10,8 @@ public class LockedDoor : MonoBehaviour
     [SerializeField] private string requiredItemName = "key"; 
     [SerializeField] private string nextSceneName;           
     [SerializeField] private bool consumeKey = true;         
+    [Header("Persistence")]
+    [SerializeField] private string doorId = "LockedRoomDoor";
 
     private bool playerInRange;
 
@@ -43,14 +45,21 @@ public class LockedDoor : MonoBehaviour
 
         if (lockedDialogue != null && lockedDialogue.activeSelf) return;
 
-        if (InsideInventoryController.HasItem(requiredItemName))
+        bool alreadyUnlocked = CollectedPickups.IsCollected(doorId);
+
+        if (alreadyUnlocked || InsideInventoryController.HasItem(requiredItemName))
         {
-            if (consumeKey) InsideInventoryController.ConsumeItem(requiredItemName);
+            if (!alreadyUnlocked)
+            {
+                if (consumeKey) InsideInventoryController.ConsumeItem(requiredItemName);
+                CollectedPickups.MarkCollected(doorId); // remember the door is open
+            }
+
             LevelManager.Instance.LoadScene(nextSceneName, "CrossFade");
         }
         else if (lockedDialogue != null)
         {
-            lockedDialogue.SetActive(true); // "It's locked. I need a key."
+            lockedDialogue.SetActive(true); 
         }
     }
 }
