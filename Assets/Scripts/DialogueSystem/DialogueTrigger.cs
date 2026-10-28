@@ -29,6 +29,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (player != null)
         {
+            player.StopMoving();      // add this line: stops animation, audio and input
             player.enabled = false;
             if (playerRb != null) playerRb.linearVelocity = Vector2.zero;
         }
@@ -52,6 +53,10 @@ public class DialogueTrigger : MonoBehaviour
             yield return new WaitUntil(() => !dialogueHolder.activeSelf);
         }
 
-        if (player != null) player.enabled = true;
+        if (player != null)
+        {
+            player.enabled = true;
+            player.ResumeMoving();    // add this line: StopMoving turned canMove off
+        }
     }
 }

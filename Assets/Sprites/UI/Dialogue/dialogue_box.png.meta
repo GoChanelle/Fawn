@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f1b4fccd84754904f88639ab9a297fe2
+guid: f526a52737992694fae9a38066ad68f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7642297262806135325
-    second: Level 1_floor_0
+      213: 314725746338704250
+    second: dialogue_box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -77,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,23 +102,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Level 1_floor_0
+      name: dialogue_box_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 279
+        width: 1892
+        height: 840
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d12ff71bed4ee0a60800000000000000
-      internalID: 7642297262806135325
+      spriteID: a7b203816612e5400800000000000000
+      internalID: 314725746338704250
       vertices: []
       indices: 
       edges: []
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 05b7763e99e33534898decced37814a7
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Level 1_floor_0: 7642297262806135325
+      dialogue_box_0: 314725746338704250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
