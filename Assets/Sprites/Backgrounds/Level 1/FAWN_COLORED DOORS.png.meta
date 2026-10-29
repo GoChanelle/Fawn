@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -2368753499603514767
     second: FAWN_COLORED DOORS_0
-  - first:
-      213: 4119553525284637256
-    second: FAWN_COLORED DOORS_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,9 +105,9 @@ TextureImporter:
       name: FAWN_COLORED DOORS_0
       rect:
         serializedVersion: 2
-        x: 435
+        x: 1
         y: 0
-        width: 400
+        width: 398
         height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,28 +119,6 @@ TextureImporter:
       bones: []
       spriteID: 17a4ba70e3f702fd0800000000000000
       internalID: -2368753499603514767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FAWN_COLORED DOORS_1
-      rect:
-        serializedVersion: 2
-        x: 1273
-        y: 0
-        width: 400
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84a8ccbda189b2930800000000000000
-      internalID: 4119553525284637256
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       FAWN_COLORED DOORS_0: -2368753499603514767
-      FAWN_COLORED DOORS_1: 4119553525284637256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -81,7 +81,8 @@ public class ItemCollect : MonoBehaviour
 
         }
 
-        GetComponent<SpriteRenderer>().enabled = false;
+        foreach (var sr in GetComponentsInChildren<SpriteRenderer>())
+            sr.enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
         player.enabled = false;

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 04e061db715402a40b5fcc7b1e971171
+guid: 74cccec275216ab4ca42c1a37d5ac50c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4405225729635020883
-    second: FAWN_DOORS_0
-  - first:
-      213: -3206276151135854708
-    second: FAWN_DOORS_1
+      213: 3619738650489153495
+    second: FAWN_LEVEL 2 FLOOR_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FAWN_DOORS_0
+      name: FAWN_LEVEL 2 FLOOR_0
       rect:
         serializedVersion: 2
-        x: 435
+        x: 0
         y: 0
-        width: 400
-        height: 511
+        width: 1920
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,30 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: daf81bde98e7dd2c0800000000000000
-      internalID: -4405225729635020883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FAWN_DOORS_1
-      rect:
-        serializedVersion: 2
-        x: 1273
-        y: 0
-        width: 400
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8f9dbff3d40183d0800000000000000
-      internalID: -3206276151135854708
+      spriteID: 7d7682adf15eb3230800000000000000
+      internalID: 3619738650489153495
       vertices: []
       indices: 
       edges: []
@@ -162,8 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FAWN_DOORS_0: -4405225729635020883
-      FAWN_DOORS_1: -3206276151135854708
+      FAWN_LEVEL 2 FLOOR_0: 3619738650489153495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
