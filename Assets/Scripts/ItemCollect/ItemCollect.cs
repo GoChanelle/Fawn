@@ -24,6 +24,7 @@ public class ItemCollect : MonoBehaviour
 
     private bool pickUpAllowed;
     private bool collecting;
+    private bool playerInside;
 
     private void Start()
     {
@@ -39,28 +40,27 @@ public class ItemCollect : MonoBehaviour
 
     private void Update()
     {
-        if (pickUpAllowed && !collecting && Input.GetKeyDown(KeyCode.E))
-            StartCoroutine(CollectSequence());
+    bool playerFree = player != null && player.enabled && player.canMove;
+    bool canInteract = playerInside && playerFree && !collecting;
+
+    pickUpAllowed = canInteract;
+    if (promptObject != null && promptObject.activeSelf != canInteract)
+        promptObject.SetActive(canInteract);
+
+    if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        StartCoroutine(CollectSequence());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collecting) return;
-        if (collision.gameObject.name.Equals("Fawn"))
-        {
-            promptObject.SetActive(true);
-            pickUpAllowed = true;
-        }
+    if (collision.gameObject.name.Equals("Fawn"))
+        playerInside = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collecting) return;
-        if (collision.gameObject.name.Equals("Fawn"))
-        {
-            promptObject.SetActive(false);
-            pickUpAllowed = false;
-        }
+    if (collision.gameObject.name.Equals("Fawn"))
+        playerInside = false;
     }
 
     private IEnumerator CollectSequence()

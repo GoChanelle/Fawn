@@ -20,7 +20,7 @@ public class ItemPopupUI : MonoBehaviour
     {
         icon.sprite = sprite;
         icon.preserveAspect = true;
-        label.text = itemName + " Collected!";
+        label.text = itemName;
         panel.SetActive(true);
     }
 

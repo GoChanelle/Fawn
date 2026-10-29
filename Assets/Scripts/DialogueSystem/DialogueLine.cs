@@ -21,8 +21,11 @@ namespace DialogueSystem
             textHolder = GetComponent<TMP_Text>();
             textHolder.text = "";
 
-            imageHolder.sprite = characterSprite;
-            imageHolder.preserveAspect = true;
+            if (imageHolder != null)
+            {
+                imageHolder.sprite = characterSprite;
+                imageHolder.preserveAspect = true;
+            }
         }
 
         private void OnEnable()
