@@ -74,17 +74,17 @@ public class InsideInventoryController : MonoBehaviour
     }
 
     public static bool HasItem(string prefabName)
-{
-    foreach (GameObject item in savedItems)
-        if (item.name == prefabName) return true;
-    return false;
-}
+    {
+        foreach (GameObject item in savedItems)
+            if (string.Equals(item.name, prefabName, System.StringComparison.OrdinalIgnoreCase)) return true;
+        return false;
+    }
 
     public static void ConsumeItem(string prefabName)
     {
         for (int i = 0; i < savedItems.Count; i++)
         {
-            if (savedItems[i].name == prefabName)
+            if (string.Equals(savedItems[i].name, prefabName, System.StringComparison.OrdinalIgnoreCase))
             {
                 savedItems.RemoveAt(i);
                 return;
