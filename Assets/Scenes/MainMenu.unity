@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 514013685}
   - component: {fileID: 514013684}
   - component: {fileID: 514013687}
+  - component: {fileID: 514013688}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -267,6 +268,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverScale
   hoverScale: 1.1
   speed: 12
+--- !u!114 &514013688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514013682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9f6f70f53304a4aa6218e413921a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
+  clickSFX: {fileID: 8300000, guid: 8226df8329693a4489461febd6b39cf0, type: 3}
 --- !u!1 &682198510
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +803,7 @@ GameObject:
   - component: {fileID: 1300175625}
   - component: {fileID: 1300175624}
   - component: {fileID: 1300175627}
+  - component: {fileID: 1300175628}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -924,6 +939,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverScale
   hoverScale: 1.1
   speed: 12
+--- !u!114 &1300175628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300175622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9f6f70f53304a4aa6218e413921a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
+  clickSFX: {fileID: 8300000, guid: 8226df8329693a4489461febd6b39cf0, type: 3}
 --- !u!1 &1430592056
 GameObject:
   m_ObjectHideFlags: 0

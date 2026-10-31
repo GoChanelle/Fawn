@@ -2583,6 +2583,7 @@ MonoBehaviour:
   promptObject: {fileID: 977239539}
   buck: {fileID: 0}
   requireLockedRoomCutscene: 0
+  requiredPickupId: Level1Scrunchie
 --- !u!1 &1444565749
 GameObject:
   m_ObjectHideFlags: 0
