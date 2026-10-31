@@ -8,6 +8,9 @@ public class BuckChase : MonoBehaviour
     [SerializeField] private PlayerMovement player;       // her speed + freezing her when caught
     [SerializeField] private Rigidbody2D playerRb;
 
+    [Header("Start mode")]
+    [SerializeField] private bool startOnSceneLoad = true;   // ON in Level3, OFF in LockedRoom / Level2
+
     [Header("Cutscene")]
     [SerializeField] private GameObject cutsceneHolder;   // object with DialogueHolder; chase starts when it closes
 
@@ -15,6 +18,9 @@ public class BuckChase : MonoBehaviour
     [SerializeField] private float startDelay = 1f;
     [Range(0.5f, 1f)]
     [SerializeField] private float percentOfRunSpeed = 0.92f; // slightly slower than Fawn running
+
+    [Header("Pass-through (LockedRoom / Level2)")]
+    [SerializeField] private bool passThroughPlayer = false;  // leave OFF in Level3
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
@@ -28,6 +34,7 @@ public class BuckChase : MonoBehaviour
 
     private bool chasing;
     private bool caught;
+    private Coroutine startRoutine;
 
     private float ChaseSpeed => player.moveSpeed * player.runMultiplier * percentOfRunSpeed;
 
@@ -36,7 +43,7 @@ public class BuckChase : MonoBehaviour
         rb.freezeRotation = true;
         transform.rotation = Quaternion.identity;
 
-        StartCoroutine(BeginChase());
+        if (startOnSceneLoad) StartCoroutine(BeginChase());
     }
 
     private IEnumerator BeginChase()
@@ -51,9 +58,50 @@ public class BuckChase : MonoBehaviour
         chasing = true;
     }
 
-    // Call from your GoodEnding trigger
+    // Used by the pickup event in the Inspector
+    public void StartChase()
+    {
+        StartChaseWithDelay(startDelay);
+    }
+
+    // Used by code that wants its own head start (e.g. BuckChaseResume in Level2)
+    public void StartChaseWithDelay(float delay)
+    {
+        if (chasing || caught || startRoutine != null) return;
+        GameProgress.BuckChasing = true;
+        startRoutine = StartCoroutine(StartChaseRoutine(delay));
+    }
+
+    private IEnumerator StartChaseRoutine(float delay)
+    {
+        rb.simulated = true;
+        rb.freezeRotation = true;
+
+        if (passThroughPlayer)
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;      // can't be pushed
+            var col = GetComponent<Collider2D>();
+            if (col != null) col.isTrigger = true;        // Fawn walks through him
+        }
+        else
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+
+        yield return new WaitForSeconds(delay);
+        chasing = true;
+        startRoutine = null;
+    }
+
+    // Call from your door / GoodEnding trigger
     public void StopChase()
     {
+        if (startRoutine != null)
+        {
+            StopCoroutine(startRoutine);
+            startRoutine = null;
+        }
+
         chasing = false;
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         SetWalking(false);
@@ -70,13 +118,18 @@ public class BuckChase : MonoBehaviour
         SetWalking(true);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) => TryCatch(collision);
-    private void OnCollisionStay2D(Collision2D collision) => TryCatch(collision);
+    // Solid collider catch (Level3)
+    private void OnCollisionEnter2D(Collision2D collision) => TryCatch(collision.gameObject);
+    private void OnCollisionStay2D(Collision2D collision) => TryCatch(collision.gameObject);
 
-    private void TryCatch(Collision2D collision)
+    // Trigger catch (pass-through mode)
+    private void OnTriggerEnter2D(Collider2D other) => TryCatch(other.gameObject);
+    private void OnTriggerStay2D(Collider2D other) => TryCatch(other.gameObject);
+
+    private void TryCatch(GameObject other)
     {
         if (!chasing || caught) return;
-        if (collision.gameObject.name.Equals("Fawn"))
+        if (other.name.Equals("Fawn"))
             StartCoroutine(CaughtSequence());
     }
 

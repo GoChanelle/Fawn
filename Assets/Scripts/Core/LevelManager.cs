@@ -30,6 +30,12 @@ public class LevelManager : MonoBehaviour
 
     public void LoadScene(string sceneName, string transitionName)
     {
+        if (sceneName == "GoodEnd" && !GameProgress.LockedRoomCutsceneSeen)
+        {
+            Debug.Log("GoodEnd blocked: LockedRoom Continue not chosen.");
+            return;
+        }
+
         StartCoroutine(LoadSceneCoroutine(sceneName, transitionName));
     }
 

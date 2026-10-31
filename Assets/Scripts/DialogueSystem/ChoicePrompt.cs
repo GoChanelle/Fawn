@@ -8,6 +8,9 @@ public class ChoicePrompt : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private string badEndScene = "BadEnd";
 
+    [Header("Reveal on Continue")]
+    [SerializeField] private GameObject itemToReveal;   // <-- new
+
     public bool finished { get; private set; }
 
     private void Awake()
@@ -31,6 +34,8 @@ public class ChoicePrompt : MonoBehaviour
 
     private void OnContinue()
     {
+        GameProgress.LockedRoomCutsceneSeen = true;
+        if (itemToReveal != null) itemToReveal.SetActive(true);   // <-- new
         choicePanel.SetActive(false);
         finished = true;
     }

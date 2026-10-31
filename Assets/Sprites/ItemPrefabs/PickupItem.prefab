@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb32e12076c4c74387d93ba9f0c235a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCollect
+  pickupSFX: {fileID: 8300000, guid: 889f701afd3e9f8479bcdd5a549cb7d9, type: 3}
   promptObject: {fileID: 4916457154715396271}
   inventoryItemPrefab: {fileID: 7954071777653826203, guid: c0121ff9f47d451488bb1be68cae6494, type: 3}
   itemName: Scrunchie
