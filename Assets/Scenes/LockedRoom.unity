@@ -2335,7 +2335,7 @@ MonoBehaviour:
   nextSceneName: Level2
   transitionName: CrossFade
   promptObject: {fileID: 1265327185}
-  buck: {fileID: 0}
+  buck: {fileID: 1275925602}
   requireLockedRoomCutscene: 0
   requiredPickupId: 
 --- !u!1 &839874657
@@ -3182,7 +3182,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 23ddfc400077127488caec5e850db906, type: 3}
+  m_Resource: {fileID: 8300000, guid: c44f247d7e6867d4da97f3ab7b66c812, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3432,7 +3432,7 @@ Transform:
   m_GameObject: {fileID: 1275925595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16, y: -7.72, z: 0}
+  m_LocalPosition: {x: 3.16, y: -7.83, z: 0}
   m_LocalScale: {x: 6.4096813, y: 6.4096813, z: 8.217543}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5337,9 +5337,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 149389641}
   - {fileID: 1557749043}
+  - {fileID: 177333334}
   - {fileID: 1623677144}
   - {fileID: 221994881}
-  - {fileID: 177333334}
   - {fileID: 1296112438}
   - {fileID: 1275925601}
   - {fileID: 387077534}

@@ -2018,7 +2018,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 23ddfc400077127488caec5e850db906, type: 3}
+  m_Resource: {fileID: 8300000, guid: c44f247d7e6867d4da97f3ab7b66c812, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2250,7 +2250,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6630751797785795899, guid: f92d6524b1648514681143fda199194d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -2268,7 +2268,7 @@ Transform:
   m_GameObject: {fileID: 679892738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16, y: -7.72, z: 0}
+  m_LocalPosition: {x: 3.16, y: -7.94, z: 0}
   m_LocalScale: {x: 6.4096813, y: 6.4096813, z: 8.217543}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2430,7 +2430,7 @@ MonoBehaviour:
   nextSceneName: Level3
   transitionName: CrossFade
   promptObject: {fileID: 525708238}
-  buck: {fileID: 0}
+  buck: {fileID: 679892739}
   requireLockedRoomCutscene: 1
   requiredPickupId: 
 --- !u!1 &977239539
