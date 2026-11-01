@@ -1999,7 +1999,7 @@ MonoBehaviour:
   startOnSceneLoad: 0
   cutsceneHolder: {fileID: 0}
   startDelay: 1
-  percentOfRunSpeed: 0.92
+  percentOfRunSpeed: 0.905
   passThroughPlayer: 1
   rb: {fileID: 679892742}
   spriteRenderer: {fileID: 679892744}
@@ -2432,6 +2432,7 @@ MonoBehaviour:
   promptObject: {fileID: 525708238}
   buck: {fileID: 0}
   requireLockedRoomCutscene: 1
+  requiredPickupId: 
 --- !u!1 &977239539
 GameObject:
   m_ObjectHideFlags: 0
