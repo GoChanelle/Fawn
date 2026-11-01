@@ -3853,8 +3853,8 @@ MonoBehaviour:
   playerRb: {fileID: 1296112432}
   startOnSceneLoad: 0
   cutsceneHolder: {fileID: 0}
-  startDelay: 1
-  percentOfRunSpeed: 0.905
+  startDelay: 0.05
+  percentOfRunSpeed: 0.93
   passThroughPlayer: 0
   rb: {fileID: 1275925598}
   spriteRenderer: {fileID: 1275925600}
