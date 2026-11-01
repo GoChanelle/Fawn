@@ -4436,7 +4436,7 @@ MonoBehaviour:
   input: I need to leave.
   delay: 0.1
   delayBetweenLines: 0
-  sound: {fileID: 8300000, guid: b0a519451ed9e88458eee48cf54878a3, type: 3}
+  sound: {fileID: 8300000, guid: 201862d355e3ec744b87966d80d6146a, type: 3}
   characterSprite: {fileID: -4469010610899010960, guid: f32618dedd509b743aeab1a91104e6a3, type: 3}
   imageHolder: {fileID: 0}
 --- !u!114 &1573930709
