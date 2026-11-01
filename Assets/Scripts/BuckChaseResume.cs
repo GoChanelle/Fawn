@@ -12,6 +12,10 @@ public class BuckChaseResume : MonoBehaviour
 
         buck.transform.position = spawnPoint.position;
         buck.gameObject.SetActive(true);
+
+        var rb = buck.GetComponent<Rigidbody2D>();
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        
         buck.StartChaseWithDelay(graceSeconds);
     }
 }

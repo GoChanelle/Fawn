@@ -3299,7 +3299,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275925595}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -3351,7 +3351,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0049999803, y: 0.595}
+  m_Offset: {x: -0.0049999803, y: 0.5999912}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.48888892, y: -0.017391305}
@@ -3361,7 +3361,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.45, y: 1.1500001}
+  m_Size: {x: 0.45, y: 1.1400177}
   m_EdgeRadius: 0
 --- !u!212 &1275925600
 SpriteRenderer:

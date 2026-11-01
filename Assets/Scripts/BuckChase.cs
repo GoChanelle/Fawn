@@ -79,7 +79,7 @@ public class BuckChase : MonoBehaviour
 
         if (passThroughPlayer)
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;      // can't be pushed
+            rb.bodyType = RigidbodyType2D.Kinematic;     
             var col = GetComponent<Collider2D>();
             if (col != null) col.isTrigger = true;        // Fawn walks through him
         }
